@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>OpenRouter Control — Options</title>
+  <style>
+    body { font-family: ui-sans-serif, system-ui; margin: 16px; max-width: 720px; }
+    label { display: block; margin: 8px 0 4px; font-weight: 600; }
+    input[type="text"], select {
+      width: 360px; max-width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 6px;
+    }
+    .tog { display:flex; align-items:center; gap:8px; margin:8px 0; }
+    .btn { margin-top: 10px; padding: 8px 10px; border-radius: 6px; border: 0; background: #111; color: #fff; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h2>OpenRouter Control — Options</h2>
+  <div class="tog">
+    <input id="requireApproval" type="checkbox" />
+    <label for="requireApproval" style="font-weight:normal">Require approval before edits</label>
+  </div>
+  <div class="tog">
+    <input id="includePageText" type="checkbox" />
+    <label for="includePageText" style="font-weight:normal">Include page text context</label>
+  </div>
+  <label>Default Model</label>
+  <select id="model">
+    <option value="gpt-4o-mini">gpt-4o-mini</option>
+    <option value="gpt-4o">gpt-4o</option>
+    <option value="anthropic/claude-3.5-sonnet">anthropic/claude-3.5-sonnet</option>
+    <option value="mistralai/mixtral-8x7b-instruct">mistralai/mixtral-8x7b-instruct</option>
+    <option value="ai21/jamba-mini-1.7">ai21/jamba-mini-1.7</option>
+    <option value="deepseek/deepseek-chat-v3-0324:free">deepseek/deepseek-chat-v3-0324:free</option>
+  </select>
+  <label>Max context chars</label>
+  <input id="maxContextChars" type="text" value="5000" />
+  <div>
+    <button id="save" class="btn">Save</button>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>

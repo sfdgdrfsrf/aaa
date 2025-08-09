@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>OpenRouter Control</title>
+  <style>
+    body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto; margin: 12px; width: 320px; }
+    label { display: block; margin: 8px 0 4px; font-weight: 600; }
+    input[type="text"], input[type="password"], select, textarea {
+      width: 100%; box-sizing: border-box; padding: 8px; border: 1px solid #ccc; border-radius: 6px;
+    }
+    textarea { min-height: 80px; }
+    .row { display: flex; gap: 8px; align-items: center; }
+    .row > * { flex: 1; }
+    .btn { margin-top: 10px; padding: 8px 10px; border-radius: 6px; border: 0; background: #111; color: #fff; cursor: pointer; }
+    .btn.secondary { background: #eee; color: #111; }
+    .small { color: #666; font-size: 12px; }
+    .tog { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <h3 style="margin:0 0 8px">OpenRouter Control</h3>
+
+  <label>OpenRouter API Key</label>
+  <input id="apiKey" type="password" placeholder="sk-or-v1-..." />
+
+  <label>Model</label>
+  <select id="model">
+    <option value="gpt-4o-mini">gpt-4o-mini</option>
+    <option value="gpt-4o">gpt-4o</option>
+    <option value="anthropic/claude-3.5-sonnet">anthropic/claude-3.5-sonnet</option>
+    <option value="mistralai/mixtral-8x7b-instruct">mistralai/mixtral-8x7b-instruct</option>
+    <option value="ai21/jamba-mini-1.7">ai21/jamba-mini-1.7</option>
+    <option value="deepseek/deepseek-chat-v3-0324:free">deepseek/deepseek-chat-v3-0324:free</option>
+  </select>
+
+  <div class="tog">
+    <input id="requireApproval" type="checkbox" checked />
+    <label for="requireApproval" style="font-weight:normal">Require approval before edits</label>
+  </div>
+
+  <div class="tog">
+    <input id="includePageText" type="checkbox" checked />
+    <label for="includePageText" style="font-weight:normal">Include page text context</label>
+  </div>
+
+  <label>Max context chars</label>
+  <input id="maxContextChars" type="text" value="5000" />
+
+  <label>Prompt</label>
+  <textarea id="prompt" placeholder="e.g. rewrite the selected text, then screenshot the edited section and save notes.txt"></textarea>
+
+  <div class="row">
+    <button id="save" class="btn">Save</button>
+    <button id="run" class="btn">Run</button>
+  </div>
+
+  <p class="small">Your key is stored locally. Only used to call OpenRouter from this extension.</p>
+
+  <script src="popup.js"></script>
+</body>
+</html>

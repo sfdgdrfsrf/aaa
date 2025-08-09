@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "OpenRouter Control",
+  "version": "0.1.0",
+  "description": "Let OpenRouter assist you in-page: edit DOM, insert content, style tweaks, create/download files, clipboard, etc.",
+  "permissions": [
+    "storage",
+    "scripting",
+    "tabs",
+    "activeTab",
+    "downloads",
+    "clipboardWrite",
+    "contextMenus"
+  ],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "OpenRouter Control",
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html",
+  "icons": {
+    "16": "icon16.png",
+    "32": "icon32.png",
+    "128": "icon128.png"
+  }
+}
